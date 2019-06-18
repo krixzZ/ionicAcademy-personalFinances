@@ -1,5 +1,5 @@
-import { CashFlow } from './../../services/cash.service';
-import { ModalController } from '@ionic/angular';
+import { CashFlow, CashService } from './../../services/cash.service';
+import { ModalController, ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { Transaction } from 'src/app/services/cash.service';
 
@@ -30,7 +30,7 @@ export class CashFlowModalPage implements OnInit {
   };
 
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private cashService: CashService, private toastCtrl: ToastController) { }
 
   ngOnInit() {
   }
