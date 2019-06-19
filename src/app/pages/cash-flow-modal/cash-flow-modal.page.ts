@@ -36,6 +36,22 @@ export class CashFlowModalPage implements OnInit {
   }
 
   addTransaction() {
+    this.transaction.type = +this.transaction.type;
+    this.transaction.created_at = new Date(this.created_at).getTime();
+
+    if (this.transaction.type == CashFlow.Income) {
+      this.transaction.category = { name: 'Income', icon: 'cash'};
+    }
+
+    this.cashService.addTransaction(this.transaction).then(() => {
+      console.log('save this: ',this.transaction);
+      let toast = this.toastCtrl.create({
+        message: 'Transaction saved',
+        duration: 2000
+      }); 
+      toast.then(toast => toast.present());
+      this.modalCtrl.dismiss({reload: true});
+    });
 
   }
 
