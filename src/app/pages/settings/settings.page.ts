@@ -1,3 +1,5 @@
+import { Storage } from '@ionic/storage';
+import { CashService, CashFlow } from './../../services/cash.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  constructor() { }
+  currency = '';
+
+  constructor(private storage: Storage, private cashService: CashService) { }
 
   ngOnInit() {
+    this.storage.get('selected-currency').then(val => {
+      this.currency = val;
+    });
   }
 
+  updateCurrency() {
+    this.cashService.updateCurrency(this.currency);
+  }
+
+  clearData() {
+    this.cashService.clearData();
+  }
 }

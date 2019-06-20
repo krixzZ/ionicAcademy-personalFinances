@@ -1,3 +1,4 @@
+import { FilterPopoverPageModule } from './pages/filter-popover/filter-popover.module';
 import { CashFlowModalPageModule } from './pages/cash-flow-modal/cash-flow-modal.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    CashFlowModalPageModule, IonicStorageModule.forRoot(), ],
+    CashFlowModalPageModule, IonicStorageModule.forRoot(), FilterPopoverPageModule],
   providers: [
     StatusBar,
     SplashScreen,

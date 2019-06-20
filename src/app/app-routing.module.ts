@@ -14,6 +14,7 @@ const routes: Routes = [
     redirectTo: 'menu/tracker',
     pathMatch: 'full'
   },
+  { path: 'filter-popover', loadChildren: './pages/filter-popover/filter-popover.module#FilterPopoverPageModule' },
 ];
 
 @NgModule({
